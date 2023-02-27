@@ -9,12 +9,6 @@ app.use(bodyParser.json({ type: '*/*' }));
 app.use(express.static('public'));
 var router = express.Router();
 
-var currentTimeStamp = Date.now();
-var time = {
-    "timestamp": currentTimeStamp,
-    "human_date": moment(currentTimeStamp).format("DD-MM-YYYY h:mm:ss")
-};
-
 router.use(function (request, response, next) {
     console.log("REQUEST:" + request.method + "   " + request.url);
     response.setHeader('Access-Control-Allow-Origin', '*');
@@ -26,23 +20,34 @@ router.use(function (request, response, next) {
 
 // GET
 router.route('/').get(function (request, response) {
+    var currentTimeStamp = Date.now();
+    var time = {
+        "timestamp": currentTimeStamp,
+        "human_date": moment(currentTimeStamp).format("DD-MM-YYYY h:mm:ss")
+    };
     response.json(time).end();
 });
 
 // GET
 router.route('/:timestamp').get(function (request, response) {
     var timestamp = request.params.timestamp;
-    time.timestamp = timestamp;
-    time.human_date = moment(timestamp).format("DD-MM-YYYY h:mm:ss");
+    var time = {
+        "timestamp": timestamp,
+        "human_date": moment(timestamp).format("DD-MM-YYYY h:mm:ss")
+    };
     response.json(time).end();
 });
 
 // GET
 router.route('/:timestamp/:format').get(function (request, response) {
+    var currentTimeStamp = Date.now();
+
     var timestamp = request.params.timestamp;
     var format = request.params.format;
-    time.timestamp = timestamp;
-    time.human_date = moment(timestamp).format(format);
+    var time = {
+        "timestamp": timestamp,
+        "human_date": moment(currentTimeStamp).format(format)
+    };
     response.json(time).end();
 });
 
