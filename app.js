@@ -22,7 +22,7 @@ router.use(function (request, response, next) {
 router.route('/').get(function (request, response) {
     var timestamp = Date.now();
     var time = {
-        "timestamp": moment.unix(timestamp),
+        "timestamp": moment(timestamp).unix(),
         "human_date": moment(timestamp).local().format("DD-MM-YYYY hh:mm:ss")
     };
     response.json(time).end();
@@ -32,7 +32,7 @@ router.route('/').get(function (request, response) {
 router.route('/:timestamp').get(function (request, response) {
     var timestamp = request.params.timestamp;
     var time = {
-        "timestamp": timestamp.unix(),
+        "timestamp": timestamp,
         "human_date": moment.unix(timestamp).local().format("DD-MM-YYYY hh:mm:ss")
     };
     response.json(time).end();
