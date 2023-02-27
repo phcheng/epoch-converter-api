@@ -12,7 +12,7 @@ The REST API to the example app is described below.
 
 ### Response
 
-    {"timestamp":1672531199,"human_date":"31-12-2022 23:59:59"}
+    {"timestamp":"1672531199","human_date":"31-12-2022 23:59:59"}
 
 ## Convert from Timestamp to Human-Date
 
@@ -24,7 +24,7 @@ The REST API to the example app is described below.
 
 ### Response
 
-    {"timestamp":1672531199,"human_date":"01-01-2023 07:59:59"}
+    {"timestamp":"1672531199","human_date":"31-12-2022 23:59:59"}
 
 `GET /:timestamp/:format`
 
@@ -32,4 +32,4 @@ The REST API to the example app is described below.
 
 ### Response
 
-    {"timestamp":1672531199,"human_date":"01-01-2023 07:59:59"}
+    {"timestamp":"1672531199","human_date":"31-12-2022 23:59:59"}
