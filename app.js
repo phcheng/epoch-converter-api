@@ -20,10 +20,10 @@ router.use(function (request, response, next) {
 
 // GET
 router.route('/').get(function (request, response) {
-    var currentTimeStamp = Date.now();
+    var timestamp = Date.now();
     var time = {
-        "timestamp": currentTimeStamp,
-        "human_date": moment.unix(timestamp).format("DD-MM-YYYY h:mm:ss")
+        "timestamp": timestamp,
+        "human_date": moment.unix(timestamp).format("DD-MM-YYYY hh:mm:ss")
     };
     response.json(time).end();
 });
@@ -33,15 +33,13 @@ router.route('/:timestamp').get(function (request, response) {
     var timestamp = request.params.timestamp;
     var time = {
         "timestamp": timestamp,
-        "human_date": moment.unix(timestamp).format("DD-MM-YYYY h:mm:ss")
+        "human_date": moment.unix(timestamp).format("DD-MM-YYYY hh:mm:ss")
     };
     response.json(time).end();
 });
 
 // GET
 router.route('/:timestamp/:format').get(function (request, response) {
-    var currentTimeStamp = Date.now();
-
     var timestamp = request.params.timestamp;
     var format = request.params.format;
     var time = {
