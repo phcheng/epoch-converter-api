@@ -20,9 +20,9 @@ router.use(function (request, response, next) {
 
 // GET
 router.route('/').get(function (request, response) {
-    var timestamp = Date.now().toString();
+    var timestamp = Date.now();
     var time = {
-        "timestamp": moment(timestamp).unix().valueOf(),
+        "timestamp": moment(timestamp).unix().valueOf().toString(),
         "human_date": moment(timestamp).local().format("DD-MM-YYYY HH:mm:ss")
     };
     response.json(time).end();
