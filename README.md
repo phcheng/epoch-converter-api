@@ -26,6 +26,8 @@ The REST API to the example app is described below.
 
     {"timestamp":"1672531199","human_date":"31-12-2022 23:59:59"}
 
+## Convert from Timestamp to Human-Date with format    
+
 `GET /:timestamp/:format`
 
     https://epoch-converter-api.herokuapp.com/1672531199/DD-MM-YYYY HH:mm:ss
